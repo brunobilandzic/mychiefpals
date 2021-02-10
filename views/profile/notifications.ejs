@@ -1,0 +1,28 @@
+<%- include("../partials/header") %>
+<link rel="stylesheet" href="/css/default/profile.css">
+<link rel="stylesheet" media="screen and (max-width: 1000px)" href="/css/mobile/profile.css">
+<link rel="stylesheet" media="screen and (min-width: 1000px)" href="/css/desktop/profile.css">
+
+<div class="notifications-wrap">
+  <h4 class="dark-green center-align">New Followers</h4>
+<table class="not-table">
+  <% notifications.forEach((n) => { %>
+    <tr class="not-row">
+     <td class="username"><a class="user-link c-link" href="/user/f/<%=n.username%>"><%= n.username %></a></td>
+     <td class="date center-align"><small class="light italic"><%=new Date(n.date).toLocaleString()%></small></td>
+     <td>
+     <div class="uf-td us-td fol-unfol-wrap center-align">
+     <% if(user.following.includes(n.username)) {%>
+      <button class="<%= n.username %> uf-btn us-btn us-uf-btn btn btn-sm c-btn">Unfollow</button>
+      <%} else{%>
+       <button class="<%= n.username %> f-btn us-btn us-f-btn btn btn-sm c-btn">Follow</button>
+       <%}%>
+       </div>
+     </td>
+    </tr>
+  <%}); %>
+</table>
+</div>
+<script type="text/javascript" src="/js/activate/notifications.js"></script>
+<script type="text/javascript" src="/js/user/user-nav.js"></script>
+<%- include("../partials/footer") %>

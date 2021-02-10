@@ -1,0 +1,44 @@
+.btn-wrap button {
+  width: 170px;
+}
+.btn-wrap{
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-wrap, .settings-wrap{
+  width:90%;
+  margin:auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.d-btn{
+  border-color: black;
+  background-color: #993D42;
+  color:#B58D92;
+}
+.d-btn:hover {
+  background-color: #990000;
+  color: white;
+  border-color: black;
+}
+
+.us-table{
+  margin: auto;
+}
+
+.us-btn{
+  width: 100%;
+  max-width: 6rem;
+}
+
+.uf-td{
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+}
+.not-table{
+  margin: auto;
+}

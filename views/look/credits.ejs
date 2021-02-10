@@ -1,0 +1,16 @@
+<%- include("../partials/header") %>
+<div class="alert alert-warning credits-alert" role="alert">
+    <h4 class="alert-heading">We are terribly sorry!</h4>
+    <p>
+        Nothing really is free. So we can only provide you 5 queries each day.
+    </p>
+    <p>
+        Please, do come back at the time of the next credits update.
+    </p>
+    <hr>
+      <% if(typeof(user)!="undefined") {%>
+        <p class="mb-0">Next credit update at <%= new Date(new Date(user.credits_updated).getTime() + 86400000).toLocaleString() %></p>
+        <%}%>
+  </div>
+<script type="text/javascript" src="/js/activate/look.js"></script>
+<%- include("../partials/footer") %>

@@ -1,0 +1,25 @@
+<%- include("../partials/header") %>
+<link rel="stylesheet" href="/css/default/profile.css">
+<link rel="stylesheet" media="screen and (max-width: 1000px)" href="/css/mobile/profile.css">
+<link rel="stylesheet" media="screen and (min-width: 1000px)" href="/css/desktop/profile.css">
+<div class="profile-wrap">
+  <div class="profile-heading-wrap">
+    <h2 class="c-head">Hey <%= user.username %>!</h2>
+    <p class="recipe-count italic light">
+      You saved <%= user.saved.length %> recipes.
+    </p>
+  </div>
+  <div class="profile-options btn-wrap">
+    <a class="" href="/user/saved"><button class="btn c-btn">My Saved Recipes</button></a>
+    <a class="" href="/users/following"><button class="btn c-btn">Following</button></a>
+    <a class="" href="/users/followers"><button class="btn c-btn">Followers</button></a>
+    <a class="" href="/users"><button class="btn c-btn">Find Users to follow</button></a>
+    <a class="" href="/user/settings"><button class="btn c-btn">Settings</button></a>
+    <a class="" href="/auth/log-out"><button class="btn c-btn">Log Out</button></a>
+  </div>
+
+
+
+</div>
+<script type="text/javascript" src="/js/activate/profile.js"></script>
+<%- include("../partials/footer") %>

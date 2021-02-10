@@ -1,0 +1,5 @@
+{
+    "appService.showBuildDuringDeployPrompt": false,
+    "appService.defaultWebAppToDeploy": "/subscriptions/8d9ef8e5-ff97-4077-ad76-77fa55c4db60/resourceGroups/mychef-proginz-rg/providers/Microsoft.Web/sites/mychef-proginz",
+    "appService.deploySubpath": "."
+}

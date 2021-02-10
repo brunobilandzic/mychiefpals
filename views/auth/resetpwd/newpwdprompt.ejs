@@ -1,0 +1,13 @@
+<%- include("../../partials/header") %>
+<link rel="stylesheet" href="/css/default/auth.css">
+<link rel="stylesheet" media="screen and (max-width: 1000px)" href="/css/mobile/auth.css">
+<link rel="stylesheet" media="screen and (min-width: 1000px)" href="/css/desktop/auth.css">
+<form class="form auth-form pass-form new-pass-form" action="/auth/resetpwd/<%= username %>" method="POST">
+  <h4 class="auth-head">Reset your password</h4>
+  <%- include("../../partials/errors") %>
+  <input class="form-control" type="password" name="password" value="" placeholder="New Password" autocomplete="off" required>
+  <input class="form-control" type="password" name="password2" value="" placeholder="Repeat Password" autocomplete="off" required>
+  <button type="submit" class="btn c-btn cus-btn">Change Password</button>
+</form>
+<script type="text/javascript" src="/js/activate/hide-nav-area2.js"></script>
+<%- include("../../partials/footer") %>

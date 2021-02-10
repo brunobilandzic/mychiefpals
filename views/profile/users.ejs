@@ -1,0 +1,42 @@
+<%- include("../partials/header") %>
+<link rel="stylesheet" href="/css/default/profile.css">
+<link rel="stylesheet" media="screen and (max-width: 1000px)" href="/css/mobile/profile.css">
+<link rel="stylesheet" media="screen and (min-width: 1000px)" href="/css/desktop/profile.css">
+
+<% if(typeof(fShowing)=="undefined") {%>
+<h4 class="dark-green center-align">Users</h4>
+<% } else { %>
+  <h4 class="dark-green center-align"><%= fShowing%></h4>
+  <%}%>
+<div class="user-list-wrap">
+  <table class="us-table">
+  <%users.forEach((u) => { %>
+  <%if(u.private  || (typeof(showLogedUser)=="undefined" && typeof(user)!="undefined" && u.username == user.username)) return;%>
+  <tr class="">
+    <td class="un-td us-td">
+      <a class="user-link c-link" href="/user/f/<%=u.username%>"><%=u.username%></a>
+    </td>
+    <% if(typeof(fShowing)=="undefined") {%>
+    <td class="dt-td us-td center-align">
+    <small class="italic light">
+      &nbsp;<%=new Date(u.date).toLocaleString()%>&nbsp;
+      </small>
+    </td>
+    <% } %>
+    <% if(typeof(user)!="undefined") {%>
+      <td>
+    <div class="uf-td us-td fol-unfol-wrap">
+    <% if(u.followed_by.includes(user.username)) {%>
+     <button class="<%= u.username %> uf-btn us-btn us-uf-btn btn btn-sm c-btn">Unfollow</button>
+     <%} else{%>
+      <button class="<%= u.username %> f-btn us-btn us-f-btn btn btn-sm c-btn">Follow</button>
+      <%}%>
+    </div>
+  </td>
+    <%}%>
+</tr>
+  <%})%>
+</table>
+</div>
+<script type="text/javascript" src="/js/user/user-nav.js"></script>
+<%- include("../partials/footer") %>

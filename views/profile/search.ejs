@@ -1,0 +1,14 @@
+<%- include("../partials/header") %>
+
+<div class="search-wrap nav-item">
+  <form class="form search-form-wrap mb-0" action="/user/search" method="POST">
+    <div class="search-form">
+      <input class="nav-search-input form-control" name="username" type="text" placeholder="Search for friends" />
+      <div class="dt-search-icon">
+        <button type="submit" class="c-btn btn search-submit-btn">Search</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<%- include("../partials/footer") %>

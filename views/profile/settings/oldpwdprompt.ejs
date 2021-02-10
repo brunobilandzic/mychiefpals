@@ -1,0 +1,12 @@
+<%- include("../../partials/header") %>
+<link rel="stylesheet" href="/css/default/auth.css">
+<link rel="stylesheet" media="screen and (max-width: 1000px)" href="/css/mobile/auth.css">
+<link rel="stylesheet" media="screen and (min-width: 1000px)" href="/css/desktop/auth.css">
+<form class="form auth-form pass-form old-pass-form" action="/user/delete/<%= user.auth %>" method="POST">
+  <h4 class="auth-head">You sure?</h4>
+  <%- include("../../partials/errors") %>
+  <input class="form-control" type="password" name="password" value="" placeholder="Your Password" autocomplete="off" required>
+  <button type="submit" class="btn c-btn">Submit</button>
+</form>
+
+<%- include("../../partials/footer") %>

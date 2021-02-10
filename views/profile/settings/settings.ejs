@@ -1,0 +1,16 @@
+<%- include("../../partials/header") %>
+<link rel="stylesheet" href="/css/default/profile.css">
+<div class="settings-wrap">
+  <h1 class="c-head"><i class="fas fa-cogs"></i></h1>
+  <div class="settings-options  btn-wrap">
+    <% if(user.private){ %>
+    <button class="btn public-btn c-btn">Go public</button>
+    <% } else { %>
+    <button class="btn private-btn c-btn">Go private</button>
+    <% } %>
+    <a class="" href="/auth/pwd/<%= user.auth %>"><button class="btn c-btn">Change Password</button></a>
+    <a  class="" href="/user/delete/<%= user.auth %>"><button class="btn btn-danger d-btn c-btn">Delete your account</button></a>
+  </div>
+</div>
+<script type="text/javascript" src="/js/settings.js"></script>
+<%- include("../../partials/footer") %>

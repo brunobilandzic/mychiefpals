@@ -1,0 +1,22 @@
+.desktop-search-wrap{
+  display: none;
+}
+.mobile-search-wrap{
+  display: flex;
+  align-items: center;
+}
+.navbar-brand{
+  margin-right: 8px;
+}
+.mb-search-icon{
+  display: flex;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  justify-content: center;
+  border-radius: 14px;
+}
+
+.search-form {
+
+}

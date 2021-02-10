@@ -1,0 +1,101 @@
+<%- include("../partials/header") %>
+<link rel="stylesheet" href="/css/default/recipe/prompt.css">
+<link rel="stylesheet" media="screen and (max-width: 1000px)" href="/css/mobile/recipe/prompt.css">
+<link rel="stylesheet" media="screen and (min-width: 1000px)" href="/css/desktop/recipe/prompt.css">
+<form class="form recipe-prompt-wrap mb-3" action="look" method="post">
+  <h4 class="r-prompt-heading mb-0">Recipe Finder</h4>
+  <small class="italic light">You can leave any field as "Not Specified".</small>
+  <div class="form-group mt-2">
+    <label for="mealType">Meal Type</label>
+    <select id="mealType" class="select t-select form-control" name="type" id="type">
+      <option value="none">Not Specified</option>
+      <option value="mainCourse">Main Course</option>
+      <option value="sideDish">Side Dish</option>
+      <option value="dessert">Dessert</option>
+      <option value="breakfast">Breakfast</option>
+      <option value="salad">Salad</option>
+      <option value="soup">Soup</option>
+      <option value="beverage">Beverage</option>
+      <option value="sauce">Sauce</option>
+      <option value="snack">Snack</option>
+      <option value="drink">Drink</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="cuisine">Cuisine</label>
+    <select id="cuisine" class="select c-select form-control" name="cuisine" id="cuisine">
+      <option value="none">Not Specified</option>
+      <option value="french">French</option>
+      <option value="italian">Italian</option>
+      <option value="spanish">Spanish</option>
+      <option value="chinese">Chinese</option>
+      <option value="indian">Indian</option>
+      <option value="greek">Greek</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="diet">Diet</label>
+    <select id="diet" class="select d-select form-control" name="diet" id="diet">
+      <option value="none">Not Specified</option>
+      <option value="glutenFree">Gluten Free</option>
+      <option value="ketogenic">Ketogenic</option>
+      <option value="vegetarian">Vegetarian</option>
+      <option value="vegan">Vegan</option>
+      <option value="pescetarian">Pescetarian</option>
+      <option value="paleo">Paleo</option>
+      <option value="whole30">Whole 30</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="intolerances">Intolerances</label>
+    <select id="intolerances" class="select i-select form-control" name="intolerances" id="type">
+      <option value="none">Not Specified</option>
+      <option value="dairy">Dairy</option>
+      <option value="egg">Egg</option>
+      <option value="gluten">Gluten</option>
+      <option value="grain">Grain</option>
+      <option value="peanut">Peanut</option>
+      <option value="seafood">Seafood</option>
+      <option value="soy">Soy</option>
+      <option value="wheat">Wheat</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="number">How many?</label>
+    <input type="number" class="form-control" id="number" placeholder="5" name="number" min="1" max="8">
+  </div>
+  <div class="form-group">
+    <label for="sort">Sort By:</label>
+    <select id="sort" class="select s-select form-control" name="sort">
+      <option value="none">Not Specified</option>
+      <option value="popularity">Popularity</option>
+      <option value="healthiness">Healthiness</option>
+      <option value="price">Price</option>
+      <option value="protein">Protein</option>
+      <option value="total-fat">Total Fat</option>
+      <option value="sugar">Sugar</option>
+      <option value="fiber">Fiber</option>
+      <option value="energy">Energy</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="sortDirection">Sort Direction:</label>
+    <select id="sortDirection" class="select sd-select form-control" name="sortDirection">
+      <option value="desc">Desc</option>
+      <option value="asc">Asc</option>
+    </select>
+    <small class="italic light">**Sort direction will be considered only if you specified the "Sort by" field.</small>
+  </div>
+  <div class="prompt-bottom-wrap">
+
+
+    <button class="btn btn-success d-inline" type="submit">Submit</button>
+    <% if(typeof(user)!="undefined"){ %>
+    <div class="credits-info-wrap"><small><b><span class="prompt-credits-count"></span></b>&nbsp;daily credits left. Refresh time:&nbsp;<span class="prompt-credits-date"></span></small>
+    </div>
+    <% } %>
+  </div>
+</form>
+<script type="text/javascript" src="/js/activate/look.js"></script>
+<script type="text/javascript" src="/js/credits.js"></script>
+<%- include("../partials/footer") %>

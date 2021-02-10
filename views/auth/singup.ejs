@@ -1,0 +1,22 @@
+<%- include("../partials/header") %>
+<link rel="stylesheet" href="/css/default/auth.css">
+<link rel="stylesheet" media="screen and (max-width: 1000px)" href="/css/mobile/auth.css">
+<link rel="stylesheet" media="screen and (min-width: 1000px)" href="/css/desktop/auth.css">
+
+<form class="form auth-form su-form" action="singup" method="POST">
+  <h4 class="auth-head">Sign up</h4>
+  <%- include("../partials/errors") %>
+  <input class="form-control" type="email" name="email" value="" placeholder="E-mail" required>
+  <input class="form-control" type="text" name="username" value="" placeholder="Username" required / >
+  <input class="form-control" type="password" name="password" value=""  placeholder="Password" autocomplete="off" required />
+  <input class="form-control" type="password" name="password2" value="" placeholder="Repeat Password" autocomplete="off" required />
+  <button class="btn c-btn" type="submit" name="" value="">Sign me Up</button>
+</form>
+<div class="credit light  center-align">
+  <small>Made by <a href="https://brunobilandzic.from.hr/">Bruno Bilandzic</a></small>
+</div>
+<div class="credit light  center-align">
+  <small>Powered by <a href="https://spoonacular.com/food-api">Spoonacular Food API</a></small>
+</div>
+<script type="text/javascript" src="/js/activate/singup.js"></script>
+<%- include("../partials/footer") %>

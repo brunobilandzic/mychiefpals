@@ -1,0 +1,24 @@
+.recipe-wrap{
+  width:50%;
+  min-width: 670px;
+  margin: auto auto 50px;
+}
+.recipe-image{
+  width:100%;
+}
+.recipe-heading-wrap{
+  width: 50%;
+}
+.recipe-short-info-wrap{
+  align-items: flex-start;
+
+}
+.recipe-head-row{
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+}
+.user-nav-wrap{
+  width: 50%;
+  margin: auto;
+}

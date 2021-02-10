@@ -1,0 +1,22 @@
+<%- include("../partials/header") %>
+<link rel="stylesheet" href="/css/default/system.css" />
+<link rel="stylesheet" media="screen and (max-width: 1000px)" href="/css/mobile/system.css">
+<link rel="stylesheet" media="screen and (min-width: 1000px)" href="/css/desktop/system.css">
+<div class="conf-wrap">
+  <h4 class="conf-heading c-head">System configuration</h4>
+  <div class="daily-credits-wrap">
+    <div class="daily-credits-info">
+      <div class="daily-credits-txt">
+        Daily credits to every user:
+      </div>
+      <div class="daily-credits-count">
+        <%= sys.daily_credits %>
+      </div>
+    </div>
+    <div class="daily-credits-update">
+      <a href="/admin/conf/credits"><button class="btn c-btn">Update</button></a>
+    </div>
+  </div>
+</div>
+
+<%- include("../partials/footer") %>

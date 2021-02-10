@@ -1,0 +1,19 @@
+.daily-credits-wrap{
+  display: flex;
+  justify-content: space-between;
+}
+
+.daily-credits-info{
+  display: flex;
+  align-items: center;
+}
+
+.daily-credits-txt{
+  margin-right: 1em;
+}
+
+.daily-credits-count{
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-style: italic;
+}

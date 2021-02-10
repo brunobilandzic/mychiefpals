@@ -1,0 +1,12 @@
+<%- include("../partials/header") %>
+<form class="form c-form" action="/admin/conf/credits" method="POST">
+  <div class="credit-prompt-heading-wrap">
+    <h4 class="credit-prompt-heading">Please choose new credits value</h4>
+    <h5 class="credit-prompt-small-head italic light">Per user per day</h5>
+  </div>
+  <%- include("../partials/errors") %>
+  <input class="form-control" type="number" min="1" name="credits" value="" placeholder="<%= sys.daily_credits %>" autocomplete="off" required>
+  <button type="submit" class="btn c-btn">Submit</button>
+</form>
+
+<%- include("../partials/footer") %>

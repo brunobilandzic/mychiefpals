@@ -1,0 +1,18 @@
+.auth-form input {
+  margin-bottom: 8px;
+}
+
+.a-btn {
+  border: 1px solid;
+  border-radius: 0;
+  margin-bottom: 1rem;
+}
+.a-btn:hover{
+  background-color: #8db596;
+  color: white;
+  border-color: white;
+}
+
+.btn-secondary:hover{
+  background-color: #424242;
+}

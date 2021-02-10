@@ -1,0 +1,49 @@
+<% if (typeof(userView)!="undefined") {%>
+
+<div class="user-nav-wrap">
+
+  <div class="nav-username-follow-wrap">
+    <div class="uname nufw">
+      <h4 class="user-display-heading"><%= userView.username %></h4>
+    </div>
+    <div class="user-nav-item-wrap user-nav-follow-wrap nufw">
+      <% if(typeof(user)!="undefined" && userView.followed_by.includes(user.username)) {%>
+      <button class="<%= userView.username %> uf-btn btn c-btn">Unfollow</button>
+      <%} else if(typeof(user)!="undefined"){%>
+      <button class="<%= userView.username %> f-btn btn c-btn">Follow</button>
+      <%}%>
+    </div>
+  </div>
+
+    <div class="nav-user-info-wrap row">
+
+      <div class="nuiw-box post-count col-4">
+        <div class="nuiw-box-count">
+          <%= userView.saved.length %>
+        </div>
+        <div class="nuiw-box-text">
+          <small>Saved</small>
+        </div>
+      </div>
+
+      <div class="nuiw-box followers-count col-4">
+        <div class="nuiw-box-count">
+          <a href="/users/followers/<%= userView.username%>"><%= userView.followed_by.length %></a>
+        </div>
+        <div class="nuiw-box-text">
+          <small>Followers</small>
+        </div>
+      </div>
+      <div class="nuiw-box followers-count col-4">
+        <div class="nuiw-box-count">
+          <a href="/users/following/<%= userView.username%>"><%= userView.following.length %></a>
+        </div>
+        <div class="nuiw-box-text">
+          <small>Following</small>
+        </div>
+      </div>
+
+    </div>
+</div>
+<script type="text/javascript" src="/js/user/user-nav.js"></script>
+<%}%>

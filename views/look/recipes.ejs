@@ -1,0 +1,128 @@
+<%- include("../partials/header") %>
+<link rel="stylesheet" href="/css/default/recipe/recipe.css">
+<link rel="stylesheet" media="screen and (max-width: 1000px)" href="/css/mobile/recipe/recipe.css">
+<link rel="stylesheet" media="screen and (min-width: 1000px)" href="/css/desktop/recipe/recipe.css">
+<% const nutrients = ["Calories", "Fat", "Saturated Fat", "Carbohydrates", "Sugar",  "Protein"]; %>
+<%- include("../partials/user-nav") %>
+<div class="recipes-wrap">
+  <%if(typeof(dbview)!="undefined") recipes.reverse();%>
+  <% recipes.forEach((recipe) => { %>
+  <div id="<%=recipe.id%>" class="recipe-wrap">
+    <div class="recipe-head-row">
+
+        <div class="recipe-heading-wrap">
+          <h2 class="recipe-heading mb-0"><%= recipe.title %></h2>
+          <div class="recipe-cuisines-wrap">
+            <% recipe.cuisines.forEach((cuisine, i) => { %>
+            <span class="recipe-cuisine italic light">
+              <%=cuisine%><%if(i!=recipe.cuisines.length-1){%>,&nbsp;
+              <%}%>
+          </span>
+        <% }) %>
+          </div>
+          <div class="recipe-diets-wrap">
+            <% recipe.diets.forEach((diet, i) => { %>
+            <span class="recipe-diet italic light">
+              <%=diet%><%if(i!=recipe.diets.length-1){%>,&nbsp;
+              <%}%>
+          </span>
+        <% }) %>
+          </div>
+      </div>
+      <div class="recipe-short-info-wrap italic light">
+        <div class="recipe-short-info">
+          <div class="recipe-ready-in-wrap">
+            <i class="far fa-clock ready-in-icon recipe-info-icon"></i>&nbsp;<%= recipe.readyInMinutes %> min
+          </div>
+
+
+          <div class="spoonacularScore">
+            <i class="fas fa-medal"></i>&nbsp;<%=recipe.spoonacularScore%>&sol;100
+          </div>
+          <div class="healthScore">
+            <i class="fas fa-heartbeat"></i>&nbsp;<%=recipe.healthScore%>&sol;100
+          </div>
+          <% if(typeof(apiview)!="undefined"){ %>
+          <% recipe.nutrition.nutrients.forEach((nutrient) => { %>
+          <% if(nutrients.includes(nutrient.title)) { %>
+            <div class="nutrient">
+              <%= nutrient.title.slice(0,3) %>:&nbsp;<%=nutrient.amount%>
+            </div>
+          <%}%>
+            <%})} else if(typeof(dbview)!="undfined"){%>
+          <% recipe.nutrition.forEach((nutrient) => { %>
+            <div class="nutrient">
+              <%= nutrient.title.slice(0,3) %>:&nbsp;<%=nutrient.amount%>
+            </div>
+          <%})}%>
+
+        </div>
+      </div>
+    </div>
+    <div class="recipe-image-wrap">
+      <img class="recipe-image" src="<%= recipe.image %>" />
+    </div>
+    <div class="expand-recipe-btn-wrap">
+      <button class="<%=recipe.id%> btn  c-btn expand-recipe-btn">
+        Expand
+      </button>
+    </div>
+    <div class="<%=recipe.id%> expanded hidden">
+      <div class="recipe-ingredients-wrap">
+        <h3 class="recipe-ingredients-heading">Ingredients</h3>
+        <div class="recipe-ingredients">
+        <ul class="ingredients-list">
+
+
+          <% if(typeof(apiview)!="undefined"){ %>
+          <% recipe.extendedIngredients.forEach((ingredient) => { %>
+
+            <li class="ingredient-string">
+              <%= ingredient.originalString %>
+            </li>
+          <%})} else if(typeof(dbview)!="undfined"){%>
+          <% recipe.ingredients.forEach((ingredient) => { %>
+            <li class="ingredient-string">
+              <%= ingredient.originalString %>
+            </li>
+          <% })} %>
+        </ul>
+        </div>
+      </div>
+      <div class="recipe-instructions-wrap">
+        <h3 class="recipe-instructions-heading">
+          Instructions
+        </h3>
+        <div class="recipe-instructions">
+          <%- recipe.instructions %>
+        </div>
+      </div>
+      <div class="bottom-btn-wrap">
+        <div class="recipe-url-wrap">
+          <a href="<%= recipe.sourceUrl %>" target="_blank" class="recipe-url">
+            <button class="btn c-btn src-btn">Source <i class="fas fa-external-link-alt"></i></button>
+          </a>
+        </div>
+        <% if(typeof(user)!="undefined"&& user.admin == false &&(!user.saved.includes(recipe.id))){%>
+        <button class="<%=recipe.id%> btn c-btn save-recipe-btn">Save</button>
+        <% } else if (typeof(user)!="undefined"&& user.admin == false &&(user.saved.includes(recipe.id))){%>
+        <button class="<%=recipe.id%> btn c-btn unsave-recipe-btn">Unsave</button>
+        <% }%>
+        <div class="collapse-recipe-wrap">
+          <button class="<%=recipe.id%> btn c-btn collapse-recipe-btn">
+            Collapse
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% }) %>
+</div>
+
+<% if(typeof(apiview) != "undefined") {%>
+<script type="text/javascript" src="/js/activate/look.js"></script>
+<% } else if(typeof(userView)=="undefined"){ %>
+<script type="text/javascript" src="/js/activate/profile.js"></script>
+<% } %>
+<script type="text/javascript" src="/js/recipes.js"></script>
+<%- include("../partials/footer") %>

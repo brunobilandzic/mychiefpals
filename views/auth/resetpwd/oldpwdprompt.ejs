@@ -1,0 +1,12 @@
+<%- include("../../partials/header") %>
+<link rel="stylesheet" href="/css/default/auth.css">
+<link rel="stylesheet" media="screen and (max-width: 1000px)" href="/css/mobile/auth.css">
+<link rel="stylesheet" media="screen and (min-width: 1000px)" href="/css/desktop/auth.css">
+<form class="form auth-form pass-form old-pass-form" action="/auth/pwd/<%= user.username %>" method="POST">
+  <h4 class="auth-head">Please verify yourself</h4>
+  <%- include("../../partials/errors") %>
+  <input class="form-control" type="password" name="password" value="" placeholder="Old Password" autocomplete="new-password" required>
+  <button type="submit" class="btn c-btn">Submit</button>
+</form>
+<script type="text/javascript" src="/js/activate/profile.js"></script>
+<%- include("../../partials/footer") %>

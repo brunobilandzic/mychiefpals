@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>My Chief Pals - Query recipes, save them for later, follow your friends</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/default/main.css">
+  <link rel="stylesheet" media="screen and (max-width: 1000px)" href="/css/mobile/main.css">
+  <link rel="stylesheet" media="screen and (min-width: 1000px)" href="/css/desktop/main.css">
+  <link rel="icon" href="/images/icons/favicon.ico" />
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="nav-area navbar-left-wrap">
+      <a class="navbar-brand" href="/">MyChiefPals <i class="fas fa-cookie-bite"></i></a>
+      <div class="mobile-search-wrap nav-item">
+        <div class="search-bg mb-search-bg">
+          <div class="mb-search-icon">
+            <a href="/search"><i class="fas fa-search"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="desktop-search-wrap nav-item">
+        <form class="form nav-search-form-wrap mb-0" action="/user/search" method="POST">
+          <div class="nav-search-form">
+            <input class="nav-search-input" name="username" type="text" placeholder="Search for friends" />
+            <div class="dt-search-icon">
+              <button type="submit" class="search-submit-btn"><i class="fas fa-search"></i></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="nav-area nav-area2">
+      <% if (typeof(user) != "undefined" && (user.admin == false)) {%>
+      <span class="nav-item hover-light-green">
+        <a class="nav-link home" href="/"><i class="fas fa-home"></i></a>
+      </span>
+      <span class="nav-item hover-light-green">
+        <a class="nav-link look" href="/recipes/look"><i class="fas fa-pizza-slice"></i></a>
+      </span>
+      <span class="nav-item hover-light-green">
+        <a class="nav-link profile" href="/user"><i class="fas fa-user-alt"></i></a>
+      </span>
+      <span class="nav-item not-wrap hover-light-green">
+        <a class="nav-link notification" href="/user/notifications"><i class="fas fa-bell"></i></a>
+        <% if(user.notifications.filter((n) => !n.seen).length != 0) {%>
+          <div class="not-count">
+            <%= user.notifications.filter((n) => !n.seen).length %>
+          </div>
+        <% } %>
+      </span>
+      <% } else if(typeof(user) == "undefined"){ %>
+      <span class="nav-item hover-light-green">
+        <a class="nav-link login" href="/auth/login">Log in</a>
+      </span>
+      <span class="nav-item hover-light-green">
+        <a class="nav-link singup" href="/auth/singup">Sing up</a>
+      </span>
+      <% } else {%>
+      <span class="nav-item">
+        <a class="nav-link" href="/admin/conf">Configure System</a>
+      </span>
+      <%}%>
+    </div>
+  </nav>
+  <div class="container-fluid main-wrapper">
